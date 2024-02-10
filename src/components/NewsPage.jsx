@@ -3,8 +3,11 @@ import Pagination from "@mui/material/Pagination";
 import styles from "../styles/NewsPage.module.css";
 import OneNews from "./OneNews";
 
-const NewsPage = ({ news }) => {
-  const { hits, nbHits } = news;
+const NewsPage = ({ news, page, setPage }) => {
+  const { hits, nbHits, nbPages } = news;
+  const handleChange = (event, value) => {
+    setPage(value - 1);
+  };
 
   return (
     <div>
@@ -18,7 +21,15 @@ const NewsPage = ({ news }) => {
               </li>
             ))}
           </ul>
-          <Pagination count={3} variant="outlined" shape="rounded" />
+          <Pagination
+            count={nbPages}
+            // defaultPage={6}
+            // boundaryCount={2}
+            page={page + 1}
+            onChange={handleChange}
+            variant="outlined"
+            shape="rounded"
+          />
         </div>
       ) : (
         <p>There is no news for this request</p>
