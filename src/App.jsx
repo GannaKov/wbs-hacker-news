@@ -19,18 +19,7 @@ const App = () => {
   //http://hn.algolia.com/api/v1/search?query=react&tags=story
 
   useEffect(() => {
-    fetchHits()
-      .then((res) => setNews(res))
-      .catch((error) => {
-        console.log(error.message);
-        alert("Sorry (. Something is wrong");
-        setNews([]);
-      })
-      .finally(() => setLoading(false));
-  }, []);
-
-  useEffect(() => {
-    const queryAdd = `&query=${query}`;
+    const queryAdd = query ? `&query=${query}` : "";
     fetchHits(queryAdd)
       .then((res) => setNews(res))
       .catch((error) => {
@@ -40,6 +29,18 @@ const App = () => {
       })
       .finally(() => setLoading(false));
   }, [query]);
+
+  // useEffect(() => {
+  //   const queryAdd = `&query=${query}`;
+  //   fetchHits(queryAdd)
+  //     .then((res) => setNews(res))
+  //     .catch((error) => {
+  //       console.log(error.message);
+  //       alert("Sorry (. Something is wrong");
+  //       setNews([]);
+  //     })
+  //     .finally(() => setLoading(false));
+  // }, [query]);
   return (
     <div>
       <Header setQuery={setQuery} query={query} />
