@@ -1,0 +1,8 @@
+.newsListWrp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.newsList {
+  margin-bottom: 2rem;
+}

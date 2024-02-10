@@ -10,7 +10,6 @@ const OneNews = ({ item }) => {
         <p>{created_at}</p>
         <p>{num_comments}</p>
       </div>
-      ;
     </div>
   );
 };
