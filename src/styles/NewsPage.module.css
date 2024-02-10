@@ -6,3 +6,7 @@
 .newsList {
   margin-bottom: 2rem;
 }
+.resultsText {
+  margin-bottom: 1rem;
+  text-decoration: underline dotted 1px;
+}

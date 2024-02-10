@@ -1,0 +1,12 @@
+.headerWrp {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid gray;
+}
+.headerInput {
+  width: 300px;
+  outline: 1px solid transparent;
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}

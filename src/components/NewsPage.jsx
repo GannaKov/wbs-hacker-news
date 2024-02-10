@@ -11,7 +11,7 @@ const NewsPage = ({ news, page, setPage }) => {
 
   return (
     <div>
-      <p>{nbHits} results</p>
+      <p className={styles.resultsText}>{nbHits} results</p>
       {hits && hits.length > 0 ? (
         <div className={styles.newsListWrp}>
           <ul className={styles.newsList}>
