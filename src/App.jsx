@@ -5,7 +5,7 @@ import Spinner from "./components/Spinner";
 import Header from "./components/Header";
 import NewsPage from "./components/NewsPage";
 
-const basicUrl = "http://hn.algolia.com/api/v1/search?tags=story";
+const basicUrl = "https://hn.algolia.com/api/v1/search?tags=story";
 
 const fetchHits = async (searchQuery = "", page) => {
   const { data } = await axios.get(`${basicUrl}${searchQuery}&page=${page}`);
