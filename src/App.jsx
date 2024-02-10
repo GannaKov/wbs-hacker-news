@@ -17,6 +17,8 @@ const App = () => {
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
+  const [allPages, setAllPages] = useState(null);
+  const [allNews, setAllNews] = useState(null);
 
   //http://hn.algolia.com/api/v1/search?query=react&tags=story
 
@@ -24,7 +26,11 @@ const App = () => {
     setLoading(true);
     const queryAdd = query ? `&query=${query}` : "";
     fetchHits(queryAdd, page)
-      .then((res) => setNews(res))
+      .then((res) => {
+        setNews(res.hits);
+        setAllPages(res.nbPages);
+        setAllNews(res.nbHits);
+      })
       .catch((error) => {
         console.log(error.message);
         alert("Sorry (. Something is wrong");
@@ -48,7 +54,20 @@ const App = () => {
     <div>
       <Header setQuery={setQuery} query={query} setPage={setPage} />
       {loading && <Spinner />}
-      {news && <NewsPage news={news} page={page} setPage={setPage} />}
+      {news.length > 0 && (
+        <NewsPage
+          news={news}
+          page={page}
+          setPage={setPage}
+          allNews={allNews}
+          allPages={allPages}
+        />
+      )}
+      {news.length === 0 && !loading ? (
+        <p>There is no news for this request</p>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

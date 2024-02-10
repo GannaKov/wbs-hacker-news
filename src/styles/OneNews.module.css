@@ -1,0 +1,9 @@
+.newsLink {
+  font-size: 1.3rem;
+  color: blue;
+}
+.newsCard {
+  border: 1px solid gray;
+  border-radius: 5px;
+  align-self: stretch;
+}

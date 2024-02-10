@@ -1,3 +1,6 @@
+.newsSection {
+  padding: 0 1rem;
+}
 .newsListWrp {
   display: flex;
   flex-direction: column;
@@ -5,8 +8,16 @@
 }
 .newsList {
   margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
 }
 .resultsText {
   margin-bottom: 1rem;
   text-decoration: underline dotted 1px;
+}
+.newsCard {
+  border: 1px solid gray;
+  border-radius: 5px;
+  align-self: stretch;
 }
